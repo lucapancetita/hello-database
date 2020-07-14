@@ -1,6 +1,7 @@
 
 const express  = require('express');
 const mongoose = require('mongoose');
+const cors     = require('cors');
 
 const router = require('./routes/api/user');
 
@@ -8,6 +9,8 @@ const port = process.env.PORT        || 3000;
 const db   = process.env.MONGODB_URI || 'mongodb://localhost/hellodb';
 
 const app = express();
+
+app.use(cors());
 
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
